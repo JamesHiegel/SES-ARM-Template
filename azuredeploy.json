@@ -20,6 +20,10 @@
                 "description": "Password for pipeline deployment group registration."
             }
         },
+	"extensions_CustomScriptExtension_fileURI": {
+            "defaultValue": "https://raw.githubusercontent.com/JamesHiegel/SES-ARM-Template/master/setup_netcoreiis.ps1",
+            "type": "SecureString"
+        },
         "extensions_CustomScriptExtension_commandToExecute": {
             "defaultValue": "powershell.exe -ExecutionPolicy Unrestricted -File setup_netcoreiis.ps1",
             "type": "SecureString"
