@@ -20,12 +20,8 @@
                 "description": "Password for pipeline deployment group registration."
             }
         },
-	"extensions_CustomScriptExtension_fileURI": {
-            "defaultValue": "https://raw.githubusercontent.com/JamesHiegel/SES-ARM-Template/master/setup_netcoreiis.ps1",
-            "type": "SecureString"
-        },
         "extensions_CustomScriptExtension_commandToExecute": {
-            "defaultValue": "powershell.exe -ExecutionPolicy Unrestricted -File setup_netcoreiis.ps1",
+            "defaultValue": "$ScriptFromGitHub = Invoke-WebRequest https://raw.githubusercontent.com/JamesHiegel/SES-ARM-Template/master/setup_netcoreiis.ps1; Invoke-Expression $($ScriptFromGitHub.Content)",
             "type": "SecureString"
         },
         "virtualNetworks_dev_wu2_vnet_name": {
@@ -516,9 +512,6 @@
             "properties": {
                 "autoUpgradeMinorVersion": true,
                 "settings": {
-		    "fileUris": [
-                	"[parameters('extensions_CustomScriptExtension_fileURI')]"
-            		],
                     "commandToExecute": "[parameters('extensions_CustomScriptExtension_commandToExecute')]"
                 },
                 "publisher": "Microsoft.Compute",
