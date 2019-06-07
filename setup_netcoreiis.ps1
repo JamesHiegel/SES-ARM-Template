@@ -3,7 +3,7 @@ Invoke-WebRequest -useb 'https://dot.net/v1/dotnet-install.ps1' -InstallDir 'C:\
 net stop was /y
 net start w3svc
 iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')) 
-choco install -y --params=\"Quiet IgnoreMissingIIS\" dotnetcore-windowshosting
+cinst -y --params="Quiet IgnoreMissingIIS" dotnetcore-windowshosting
 $oldpath = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
 $newpath = "$oldpath;C:\Program Files\dotnet"
 Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath
