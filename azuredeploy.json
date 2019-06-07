@@ -21,7 +21,7 @@
             }
         },
         "extensions_CustomScriptExtension_commandToExecute": {
-            "defaultValue": "$ScriptFromGitHub = Invoke-WebRequest https://raw.githubusercontent.com/JamesHiegel/SES-ARM-Template/master/setup_netcoreiis.ps1; Invoke-Expression $($ScriptFromGitHub.Content)",
+            "defaultValue": "powershell $ScriptFromGitHub = Invoke-WebRequest https://raw.githubusercontent.com/JamesHiegel/SES-ARM-Template/master/setup_netcoreiis.ps1; Invoke-Expression $($ScriptFromGitHub.Content)",
             "type": "SecureString"
         },
         "virtualNetworks_dev_wu2_vnet_name": {
